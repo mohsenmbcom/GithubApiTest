@@ -25,6 +25,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         // Enabling multidex support.
         multiDexEnabled true
+        vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
         release {
@@ -34,6 +35,9 @@ android {
         debug {
             signingConfig signingConfigs.config
         }
+    }
+    dataBinding {
+        enabled = true
     }
     dexOptions {
         javaMaxHeapSize "4g"
@@ -48,6 +52,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':arch')
     implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     // Multidex

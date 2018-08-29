@@ -16,6 +16,7 @@ class ApiModule {
     @Named(NAMED_REST_API_URL)
     fun provideRestApiUrl(): String = API_REST_URL
 
+    @Provides
     fun provideSchedulersProvider(): ISchedulersProvider =
             SchedulersProvider()
 

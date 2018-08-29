@@ -10,10 +10,9 @@ import com.mohsenmb.arch.domain.RepositoryContract
 import retrofit2.HttpException
 import java.io.IOException
 import java.net.SocketTimeoutException
-import javax.inject.Inject
 
 
-class TrendingReposViewModel @Inject constructor(
+class TrendingReposViewModel(
         private val repository: RepositoryContract.ITrendingReposRepository,
         private val schedulers: ISchedulersProvider
 ) : ViewModel() {
@@ -34,11 +33,8 @@ class TrendingReposViewModel @Inject constructor(
                 .observeOn(schedulers.ui())
                 .subscribe({
                     (errorsLiveData as MutableLiveData<*>).value = Error.SUCCESS
-                    if (page == 1) {
-                        (reposLiveData as MutableLiveData<*>).value = mutableListOf<Repo>()
-                    }
+                    (reposLiveData as MutableLiveData<*>).value = it.repos
                     page++
-                    reposLiveData.value?.addAll(it.repos)
                 }, { error ->
                     (errorsLiveData as MutableLiveData<*>).value = when (error) {
                         is HttpException -> {

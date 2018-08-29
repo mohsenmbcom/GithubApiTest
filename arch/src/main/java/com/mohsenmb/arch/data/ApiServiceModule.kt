@@ -14,10 +14,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
-const val NAMED_REST_API_URL = "rest_api_url"
-
 @Module
-class ApiBaseModule {
+class ApiServiceModule {
 
     @Provides
     @Singleton

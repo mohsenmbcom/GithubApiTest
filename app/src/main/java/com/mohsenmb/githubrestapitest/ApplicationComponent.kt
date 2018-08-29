@@ -1,6 +1,6 @@
 package com.mohsenmb.githubrestapitest
 
-import com.mohsenmb.arch.data.ApiBaseModule
+import com.mohsenmb.arch.data.ApiServiceModule
 import com.mohsenmb.githubrestapitest.data.ApiModule
 import com.mohsenmb.githubrestapitest.ui.ApplicationModule
 import com.mohsenmb.githubrestapitest.ui.ContributorsModule
@@ -13,7 +13,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [
     AndroidSupportInjectionModule::class,
-    ApiBaseModule::class,
+    ApiServiceModule::class,
     ApiModule::class,
     ApplicationModule::class,
     ContributorsModule::class

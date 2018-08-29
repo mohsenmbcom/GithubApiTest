@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
     @Inject
     lateinit var actionManager: ActionManager
 
-    private var currentFragment: BaseFragment? = null
-
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
@@ -31,11 +29,10 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         setSupportActionBar(toolbar)
         actionManager.onActionListener = ::fireAction
-    }
 
-    override fun onStart() {
-        super.onStart()
-        actionManager.fire(Action(ActionType.ACTION_TRENDING_REPOS))
+        if (supportFragmentManager.findFragmentById(R.id.container) == null) {
+            actionManager.fire(Action(ActionType.ACTION_TRENDING_REPOS))
+        }
     }
 
     private fun fireAction(action: Action) {
