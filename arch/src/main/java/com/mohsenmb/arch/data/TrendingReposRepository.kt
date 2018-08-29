@@ -6,7 +6,7 @@ import io.reactivex.Single
 import javax.inject.Inject
 
 class TrendingReposRepository @Inject constructor(private val webservice: GithubWebservice,
-                                                      private val schedulersProvider: SchedulersProvider)
+                                                      private val schedulersProvider: ISchedulersProvider)
     : RepositoryContract.ITrendingReposRepository {
     override fun loadTrendingRepos(page: Int): Single<ReposContainer> =
             webservice

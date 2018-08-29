@@ -3,7 +3,7 @@ package com.mohsenmb.githubrestapitest.ui
 import android.os.Bundle
 import java.util.*
 
-class ActionManager {
+class ActionManager private constructor(){
     companion object {
         val instance: ActionManager by lazy {
             ActionManager()

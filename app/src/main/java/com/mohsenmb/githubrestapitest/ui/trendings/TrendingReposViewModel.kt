@@ -4,7 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import com.mohsenmb.arch.data.Error
-import com.mohsenmb.arch.data.SchedulersProvider
+import com.mohsenmb.arch.data.ISchedulersProvider
 import com.mohsenmb.arch.domain.Repo
 import com.mohsenmb.arch.domain.RepositoryContract
 import retrofit2.HttpException
@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 class TrendingReposViewModel @Inject constructor(
         private val repository: RepositoryContract.ITrendingReposRepository,
-        private val schedulers: SchedulersProvider
+        private val schedulers: ISchedulersProvider
 ) : ViewModel() {
     private var page: Int = 1
     val errorsLiveData: LiveData<Error> by lazy {

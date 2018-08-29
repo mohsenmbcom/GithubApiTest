@@ -7,6 +7,10 @@ import com.mohsenmb.githubrestapitest.ui.BaseFragment
 
 class TrendingReposFragment : BaseFragment() {
 
+    companion object {
+        fun newInstance(): TrendingReposFragment = TrendingReposFragment()
+    }
+
     override fun onViewReady(view: View, savedInstanceState: Bundle?) {
 
     }
