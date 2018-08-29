@@ -11,4 +11,6 @@
         <item name="fontFamily">@font/inconsolata</item>
     </style>
 
+    <style name="AppTheme.ThemeOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
 </resources>
