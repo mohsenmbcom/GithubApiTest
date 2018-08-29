@@ -7,5 +7,5 @@ import dagger.Provides
 class ApplicationModule {
 
     @Provides
-    fun provideActionmanager(): ActionManager = ActionManager.instance
+    fun provideActionManager(): ActionManager = ActionManager.instance
 }
