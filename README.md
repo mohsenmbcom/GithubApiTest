@@ -16,7 +16,6 @@ I used these libraries/frameworks/tools:
 - **DataBinding Library**
 - **Android DateUtils**
 
-> * Note that the tests are comming 😇
 
 ## Meta
 
