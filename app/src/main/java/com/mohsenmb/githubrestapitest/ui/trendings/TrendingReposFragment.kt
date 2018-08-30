@@ -39,8 +39,8 @@ class TrendingReposFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        trendingReposVM.reposLiveData.observe(this, Observer<MutableList<Repo>> { onChanged(it) })
-        trendingReposVM.errorsLiveData.observe(this, Observer<Error> { onChanged(it) })
+        trendingReposVM.reposLiveData.observe(this, Observer<MutableList<Repo>>(::onChanged))
+        trendingReposVM.errorsLiveData.observe(this, Observer<Error>(::onChanged))
     }
 
     override fun onViewReady(view: View, savedInstanceState: Bundle?) {

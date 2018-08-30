@@ -51,7 +51,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:text="@{repo.repoDescription}"
-                android:textColor="@color/grey"
+                android:textColor="@color/grey_600"
                 android:textSize="14sp"
                 android:visibility="@{(repo.repoDescription.length() == 0) ? View.GONE : View.VISIBLE}"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -66,6 +66,7 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/background_repo_owner_avatar"
                 android:contentDescription="@null"
                 android:src="@{repo.owner.avatar}"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -88,18 +89,20 @@
                 android:layout_marginStart="4dp"
                 android:text="@{'@' + repo.owner.username}"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@id/text_written_in_title"
+                app:layout_constraintBottom_toBottomOf="@id/text_author_title"
                 app:layout_constraintStart_toEndOf="@id/text_author_title"
+                app:layout_constraintTop_toTopOf="@id/text_author_title"
                 app:layout_goneMarginStart="4dp" />
 
             <TextView
                 android:id="@+id/text_written_in_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
                 android:layout_marginStart="4dp"
                 android:text="@string/prompt_written_in"
                 android:visibility="@{(repo.language.length() == 0) ? View.GONE : View.VISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@id/image_repo_owner"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@id/image_repo_owner" />
 
             <TextView
@@ -110,9 +113,33 @@
                 android:text="@{repo.language}"
                 android:textStyle="bold"
                 android:visibility="@{(repo.language.length() == 0) ? View.GONE : View.VISIBLE}"
-                app:layout_constraintBottom_toBottomOf="@id/image_repo_owner"
+                app:layout_constraintBottom_toBottomOf="@id/text_written_in_title"
                 app:layout_constraintStart_toEndOf="@id/text_written_in_title"
+                app:layout_constraintTop_toTopOf="@id/text_written_in_title"
                 app:layout_goneMarginStart="4dp" />
+
+            <ImageView
+                android:id="@+id/img_star"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="@null"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_star" />
+
+            <TextView
+                android:id="@+id/text_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@{String.valueOf(repo.stars)}"
+                app:layout_constraintBottom_toBottomOf="@id/img_star"
+                app:layout_constraintEnd_toStartOf="@id/img_star"
+                app:layout_constraintTop_toTopOf="@id/img_star"
+                tools:text="2999" />
 
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
