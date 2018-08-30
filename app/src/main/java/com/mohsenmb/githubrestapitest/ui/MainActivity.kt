@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.mohsenmb.githubrestapitest.R
+import com.mohsenmb.githubrestapitest.ui.repo.RepoDetailsFragment
 import com.mohsenmb.githubrestapitest.ui.trendings.TrendingReposFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
         when (action.type) {
             ActionType.UNKNOWN -> Log.w(javaClass.simpleName, "Unknown Action Fired!")
             ActionType.ACTION_TRENDING_REPOS -> transition(TrendingReposFragment.newInstance(), replace = false)
-            ActionType.ACTION_REPO -> Log.w(javaClass.simpleName, "${action.type} is not implemented yet!")
+            ActionType.ACTION_REPO -> transition(RepoDetailsFragment.newInstance(action.data))
         }
     }
 
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
         val transaction = supportFragmentManager
                 .beginTransaction()
-                .setTransition(FragmentTransaction.TRANSIT_ENTER_MASK)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
 
         if (replace) {
             transaction

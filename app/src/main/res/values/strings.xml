@@ -2,4 +2,5 @@
     <string name="app_name">Trending Android Repos</string>
     <string name="prompt_written_in">Written in</string>
     <string name="prompt_by">By</string>
+    <string name="prefix_updated">Updated</string>
 </resources>

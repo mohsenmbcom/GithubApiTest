@@ -6,4 +6,7 @@
 
     <color name="grey_200">#EEEEEE</color>
     <color name="grey_600">#757575</color>
+
+    <color name="black_a10">#10000000</color>
+    <color name="black_a66">#66000000</color>
 </resources>

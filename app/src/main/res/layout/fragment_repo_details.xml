@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_repo_owner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@null"
+            android:foreground="@drawable/foreground_repo_owner_avatar"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="3:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_octoface" />
+
+        <TextView
+            android:id="@+id/text_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.Inverse"
+            app:layout_constraintBottom_toTopOf="@id/text_repo_title"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Mohsen" />
+
+        <TextView
+            android:id="@+id/text_repo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large.Inverse"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/image_repo_owner"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Dagger" />
+
+        <ImageView
+            android:id="@+id/img_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_repo_owner"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/text_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-condensed"
+            app:layout_constraintBottom_toBottomOf="@id/img_star"
+            app:layout_constraintStart_toEndOf="@id/img_star"
+            app:layout_constraintTop_toTopOf="@id/img_star"
+            tools:text="2999" />
+
+        <ImageView
+            android:id="@+id/img_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null"
+            app:layout_constraintStart_toEndOf="@id/text_stars"
+            app:layout_constraintTop_toBottomOf="@id/image_repo_owner"
+            app:srcCompat="@drawable/ic_repo_forked" />
+
+        <TextView
+            android:id="@+id/text_forks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="sans-serif-condensed"
+            app:layout_constraintBottom_toBottomOf="@id/img_forks"
+            app:layout_constraintStart_toEndOf="@id/img_forks"
+            app:layout_constraintTop_toTopOf="@id/img_forks"
+            tools:text="123" />
+
+        <TextView
+            android:id="@+id/text_repo_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="start"
+            android:textColor="@color/grey_600"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_star"
+            tools:text="Some description" />
+
+        <TextView
+            android:id="@+id/text_updated_at"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_repo_description"
+            tools:text="Created at" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v4.widget.NestedScrollView>
