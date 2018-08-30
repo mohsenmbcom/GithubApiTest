@@ -11,6 +11,7 @@ import com.mohsenmb.githubrestapitest.R
 
 class ReposRecyclerAdapter(val repos: MutableList<Repo>)
     : RecyclerView.Adapter<DataBindingViewHolder>() {
+    var onRepoItemClickListener: ((Repo) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):
             DataBindingViewHolder {
@@ -24,6 +25,9 @@ class ReposRecyclerAdapter(val repos: MutableList<Repo>)
 
     override fun onBindViewHolder(holder: DataBindingViewHolder, position: Int) {
         holder.bindVariable(BR.repo, repos[position])
+        holder.itemView.setOnClickListener { _ ->
+            onRepoItemClickListener?.let { it(repos[holder.adapterPosition]) }
+        }
     }
 
 }

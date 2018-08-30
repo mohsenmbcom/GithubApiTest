@@ -9,7 +9,11 @@ import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.mohsenmb.arch.data.Error
 import com.mohsenmb.arch.domain.Repo
+import com.mohsenmb.githubrestapitest.KEY_DATA
 import com.mohsenmb.githubrestapitest.R
+import com.mohsenmb.githubrestapitest.ui.Action
+import com.mohsenmb.githubrestapitest.ui.ActionManager
+import com.mohsenmb.githubrestapitest.ui.ActionType
 import com.mohsenmb.githubrestapitest.ui.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_trending_repos.*
@@ -23,6 +27,8 @@ class TrendingReposFragment : BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: TrendingReposViewModelFactory
+    @Inject
+    lateinit var actionManager: ActionManager
 
     private val trendingReposVM: TrendingReposViewModel by lazy {
         ViewModelProviders.of(this, viewModelFactory)[TrendingReposViewModel::class.java]
@@ -46,6 +52,7 @@ class TrendingReposFragment : BaseFragment() {
     override fun onViewReady(view: View, savedInstanceState: Bundle?) {
         if (reposAdapter == null) {
             reposAdapter = ReposRecyclerAdapter(mutableListOf())
+            reposAdapter?.onRepoItemClickListener = ::onRepoClicked
             loadRepos(true)
         }
         recycler_repos.adapter = reposAdapter
@@ -96,6 +103,12 @@ class TrendingReposFragment : BaseFragment() {
                 recycler_repos.adapter.notifyDataSetChanged()
             }
         }
+    }
+
+    private fun onRepoClicked(repo: Repo) {
+        val data = Bundle()
+        data.putParcelable(KEY_DATA, repo)
+        actionManager.fire(Action(ActionType.ACTION_REPO, data))
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_trending_repos
